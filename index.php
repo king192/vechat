@@ -148,7 +148,7 @@ class wechatCallbackapiTest
         
                },
                {
-                   "name":"方倍工作室",
+                   "name":"方倍",
                    "sub_button":[
                     {
                        "type":"click",
