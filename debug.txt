@@ -1,0 +1,40 @@
+<?php
+defined('INTER_DEBUG')  || exit('error debug request') ;
+/**
+ * 数据接口 Debug工具 极大程度保证不对原业务代码产生污染  - 懒人神器: 自动采集最近提交的数据 并重现提交
+ * @author: kevin.zhu ,284162332@qq.com 2015-4-4
+ * 使用： 在每个需要调试的接口文件里 include 本文件即可 、
+ *        直接打开接口链接地址 尾部加入 &debug=1， 即可重现最近一次POST提交的情景。
+ */
+if( INTER_DEBUG ){
+    
+    $q =  $_SERVER['QUERY_STRING'] ; 
+    $get = array(); 
+
+    ( $q_a = explode('&',$q) ) && ($_lam = function($p, & $rtn){
+        foreach($p as $v){
+            $_a = explode('=', $v) ;
+            $rtn[$_a[0]] = $_a[1] ; 
+        }
+    })      && $_lam($q_a,  $get) ; 
+
+    is_dir('debug' )  || mkdir('debug')  ; 
+    
+    //记录post数据以供再现
+    $data_key = $get['c'].'_'.$get['a'].'.php' ; 
+    $_POST && fwrite(fopen("debug/$data_key", 'w') , '<?php return '. var_export($_POST, true).';' ) ; 
+
+    //debug开启状态下 、自动给post赋值
+    if( $get['m'] == 'home' && $get['debug']) {
+        //默认调试所有接口
+        if($get['m'] && $get['c'] && $get['a']) {
+            $_POST = include 'debug/'.$data_key ; 
+            //print_param($_POST ) ; 
+            echo '----------------debug input -------------<br /><pre>' ;
+            print_r($_POST) ; 
+            echo '</pre><br />-----------------------------------------<br /><br /><br />' ;
+        }
+        
+    }
+    
+}
