@@ -5,9 +5,6 @@
 
 //define your token
 define("TOKEN", "kdfkdfk");
-$wechatObj = new wechatCallbackapiTest();
-var_dump($wechatObj);
-$wechatObj->valid();
 
 class wechatCallbackapiTest
 {
@@ -88,5 +85,8 @@ class wechatCallbackapiTest
 		}
 	}
 }
+$wechatObj = new wechatCallbackapiTest();
+// var_dump($wechatObj);
+$wechatObj->valid();
 
 ?>
