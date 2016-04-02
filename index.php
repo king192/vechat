@@ -23,6 +23,8 @@ class wechatCallbackapiTest
         if($this->checkSignature()){
         	echo $echoStr;
         	exit;
+        }else{
+          exit('nonono');
         }
     }
 
