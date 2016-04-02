@@ -13,7 +13,7 @@ class wechatCallbackapiTest
             exit;
         }
     }
- 
+  
     public function responseMsg()
     { 
         //get post data, May be due to the different environments
