@@ -4,7 +4,7 @@
   */
 
 //define your token
-define("TOKEN", "kdfkdfk");
+// define("TOKEN", "kdfkdfk");
 
 class wechatCallbackapiTest
 {
