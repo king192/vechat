@@ -113,8 +113,8 @@ class wechatCallbackapiTest
 		}
 	}
   private function get_access_token(){
-        $appid = "wx3a5aac7161b28013";
-        $appsecret = "d4624c36b6795d1d99dcf0547af5443d";
+        $appid = "wxb39afc8e3bd62749";
+        $appsecret = "8ff4cdfe5cee4b03fc2a88604a0358d6";
         $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret";
         
         $output = $this->https_request($url);
