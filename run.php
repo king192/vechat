@@ -245,7 +245,7 @@ class wechatCallbackapiTest
     {
 
         $token = $this->get_access_token();
-        $c=array("query"=>$object->Content,"city"=>"北京","category"=>"stock","appid"=>"wx3a5aac7161b28013","uid"=>$object->FromUserName);
+        $c=array("query"=>$object->Content,"city"=>"北京","category"=>"stock","appid"=>"wxb39afc8e3bd62749","uid"=>$object->FromUserName);
         $post=json_encode($c);
         $post=urldecode($post);
         //语义理解
