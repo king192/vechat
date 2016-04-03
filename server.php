@@ -14,7 +14,7 @@ try{
 	while ($i--) {
 	\SeasLog::debug('this is a  debug',array('jhg' => 'neeke'));
 	}
-	\Lib\Vendor\SeasLog\Log::debug('11111111122223');
+	Lib\Vendor\SeasLog\Log::debug('11111111122223');
 }catch(Exception $e){
 	\SeasLog::error($e->getMessage());
 }
