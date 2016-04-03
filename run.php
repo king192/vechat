@@ -243,7 +243,7 @@ class wechatCallbackapiTest
 
       private function receiveText($object)
     {
-        \Lib\Vendor\SeasLog\Log::debug('something receive',array('msg'=>$msg->ret),'text');
+        \Lib\Vendor\SeasLog\Log::debug($msg->ret,array('msg'=>$msg->ret),'text');
 
         $token = $this->get_access_token();
         $c=array("query"=>$object->Content,"city"=>"北京","category"=>"stock","appid"=>"wx3a5aac7161b28013","uid"=>$object->FromUserName);
