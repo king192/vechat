@@ -2,7 +2,7 @@
 /**
   * wechat php test
   */
-use \Lib\Vendor\SeasLog\Log;
+use Lib\Vendor\SeasLog\Log;
 //define your token
 define("TOKEN", "kdfkdfk");
 $wechatObj = new wechatCallbackapiTest();
