@@ -199,6 +199,7 @@ class wechatCallbackapiTest
         {
             case "subscribe":
                 $contentStr = "欢迎关注!!!".$object->EventKey;
+                \Lib\Vendor\SeasLog\Log::info('some',array(),'subscribe');
             case "unsubscribe":
 
                 break;
