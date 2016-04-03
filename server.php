@@ -13,4 +13,4 @@ $i = 1;
 while ($i--) {
 \SeasLog::debug('this is a  debug',array('jhg' => 'neeke'));
 }
-\Lib/Vendor/SeasLog/Log::debug('11111111122223');
+\Lib\Vendor\SeasLog\Log::debug('11111111122223');
