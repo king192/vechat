@@ -264,7 +264,11 @@ class wechatCallbackapiTest
     private function receiveText1($object)
     {
         Log::debug($object->Content,array(),'text');
-        $contentStr = "你发送的内容为：".$object->Content;
+        if($object->Content == 'info'){
+          $contentStr = 'http://vechat.suoga.org/login.php';
+        }else{
+          $contentStr = "你发送的内容为：".$object->Content;
+        }
         Log::debug($msg->ret,array('msg'=>$object->Content),'text');
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;
