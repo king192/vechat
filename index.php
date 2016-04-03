@@ -153,16 +153,6 @@ class wechatCallbackapiTest
                    "name":"方倍",
                    "sub_button":[
                     {
-                       "type":"click",
-                       "name":"趣味游戏",
-                       "key":"游戏"
-                    },
-                    {
-                        "type":"click",
-                        "name":"讲个笑话",
-                        "key":"笑话"
-                    },
-                    {
                     "type": "view",
                     "name": "授权获取",
                     "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx3a5aac7161b28013&redirect_uri=http%3A%2F%2Fvechat.suoga.org%2Findex.php&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
@@ -176,11 +166,6 @@ class wechatCallbackapiTest
                       "type":"view",
                       "name":"授权登录",
                       "url":"http://vechat.suoga.org/login.php"
-                    },
-                    {
-                       "type":"click",
-                       "name":"公司简介",
-                       "key":"company"
                     }]
                
         
@@ -213,7 +198,7 @@ class wechatCallbackapiTest
         switch ($object->Event)
         {
             case "subscribe":
-                $contentStr = "欢迎关注".$object->EventKey;
+                $contentStr = "欢迎关注!!!".$object->EventKey;
             case "unsubscribe":
 
                 break;
