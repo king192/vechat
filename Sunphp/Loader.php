@@ -7,7 +7,7 @@ class Loader{
 	*/
 	static function autoloadfff($class){
 		// echo 'c='.$class;
-		$path = BASEDIR.'/'.$class.'.class.php';
+		$path = BASEDIR.'/'.$class.'.php';
 		// echo 'p='.$path;
 		require($path);
 	}
