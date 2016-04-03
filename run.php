@@ -40,7 +40,7 @@ class wechatCallbackapiTest
         switch ($RX_TYPE)
         {
             case "text":
-                $resultStr = $this->receiveText($postObj);
+                $resultStr = $this->receiveText1($postObj);
                 break;
             case "event":
                 $resultStr = $this->receiveEvent($postObj);
@@ -258,6 +258,14 @@ class wechatCallbackapiTest
         $funcFlag = 0;
         $contentStr = "你发送的内容为：".$msg->ret;
         Log::debug($msg->ret,array('msg'=>$msg->ret),'text');
+        $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
+        return $resultStr;
+    }
+    private function receiveText1($object)
+    {
+        Log::debug($object->Content,array(),'text');
+        $contentStr = "你发送的内容为：".$object->Content;
+        Log::debug($msg->ret,array('msg'=>$object->Content),'text');
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;
     }
