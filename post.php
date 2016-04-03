@@ -1,7 +1,7 @@
 <?php
 
 		if(isset($_POST['hello'])){
-			echo 'hi';
+			echo $_POST['hello'];
 		}else{
 			echo 'no';
 		}
