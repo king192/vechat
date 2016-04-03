@@ -243,6 +243,7 @@ class wechatCallbackapiTest
 
       private function receiveText($object)
     {
+        Log::debug($object,array(),'text');
 
         $token = $this->get_access_token();
         $c=array("query"=>$object->Content,"city"=>"北京","category"=>"stock","appid"=>"wxb39afc8e3bd62749","uid"=>$object->FromUserName);
