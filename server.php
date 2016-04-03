@@ -1,2 +1,2 @@
 <?php
-var_dump($SERVER);
+var_dump($_SERVER);
