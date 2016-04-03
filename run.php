@@ -243,7 +243,6 @@ class wechatCallbackapiTest
 
       private function receiveText($object)
     {
-        \Lib\Vendor\SeasLog\Log::debug($msg->ret,array('msg'=>$msg->ret),'text');
 
         $token = $this->get_access_token();
         $c=array("query"=>$object->Content,"city"=>"北京","category"=>"stock","appid"=>"wx3a5aac7161b28013","uid"=>$object->FromUserName);
@@ -257,6 +256,7 @@ class wechatCallbackapiTest
         $category = $strjson->semantic->details->category;
         $funcFlag = 0;
         $contentStr = "你发送的内容为：".$msg->ret;
+        \Lib\Vendor\SeasLog\Log::debug($msg->ret,array('msg'=>$msg->ret),'text');
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;
     }
