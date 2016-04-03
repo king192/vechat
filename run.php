@@ -2,7 +2,7 @@
 /**
   * wechat php test
   */
-
+use \Lib\Vendor\SeasLog\Log;
 //define your token
 define("TOKEN", "kdfkdfk");
 $wechatObj = new wechatCallbackapiTest();
@@ -199,7 +199,7 @@ class wechatCallbackapiTest
         {
             case "subscribe":
                 $contentStr = "欢迎关注!!!".$object->EventKey;
-                \Lib\Vendor\SeasLog\Log::info('some',array(),'subscribe');
+                Log::info('some',array(),'subscribe');
             case "unsubscribe":
 
                 break;
@@ -256,7 +256,7 @@ class wechatCallbackapiTest
         $category = $strjson->semantic->details->category;
         $funcFlag = 0;
         $contentStr = "你发送的内容为：".$msg->ret;
-        \Lib\Vendor\SeasLog\Log::debug($msg->ret,array('msg'=>$msg->ret),'text');
+        Log::debug($msg->ret,array('msg'=>$msg->ret),'text');
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;
     }
