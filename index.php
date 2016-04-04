@@ -9,9 +9,10 @@
 // define('APP_DEBUG',false);
 
 // 定义应用目录
-define('APP_PATH','./Application/');
 define('BASEDIR',__DIR__);
+define('APP_PATH',BASEDIR.'/Application/');
 // 引入ThinkPHP入口文件
+// echo 'hi';
 require './Sunphp/init.php';
 require './run.php';
 
