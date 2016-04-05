@@ -267,7 +267,10 @@ class vechat
             $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/login.php';
             break;
           case 'vl':
-            $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/Home/Index/velogin';
+            $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/Home/Index/oauth2';
+            break;
+          case 'v':
+            $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/Home/Index/getuserinfo';
             break;
           default:
             $contentStr = "你发送的内容为：".$object->Content;
