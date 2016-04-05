@@ -1,5 +1,6 @@
 <?php
 namespace Sunphp\Lib\Vendor;
+use Lib\Vendor\SeasLog\Log;
 
 class vechat
 {
