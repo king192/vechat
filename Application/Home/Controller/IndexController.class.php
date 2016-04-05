@@ -25,7 +25,8 @@ class IndexController {
 		$vechat = C('vechatapp',$_SERVER['SERVER_NAME']);
 		define('VECHAT_APPID', $vechat['appid']);
 		define('VECHAT_APPSECRET', $vechat['appsecret']);
-		\Sunphp\Lib\Vendor\vechat::getUserInfo();
+		$info = \Sunphp\Lib\Vendor\vechat::getUserInfo();
+		var_dump($info);
 	}
 	public function initMenu(){
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
