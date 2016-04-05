@@ -260,8 +260,7 @@ class vechat
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;
     }
-    private function receiveText1($object)
-    {
+    private function receiveText1($object){
         Log::debug($object->Content,array(),'text');
         switch ($object->Content) {
           case 'info':
@@ -273,6 +272,7 @@ class vechat
           default:
             $contentStr = "你发送的内容为：".$object->Content;
             break;
+        }
         Log::debug($msg->ret,array('msg'=>$object->Content),'text');
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;
