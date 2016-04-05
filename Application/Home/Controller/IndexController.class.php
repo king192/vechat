@@ -10,7 +10,7 @@ class IndexController {
 		if (isset($_GET['echostr'])) {
 		  $wechatObj->valid();
 		}else{
-		  $wechatObj->init_menu();
+		  $wechatObj->init_menu(); 
 		  $wechatObj->responseMsg();
 		}
 	}
