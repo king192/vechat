@@ -1,7 +1,7 @@
 <?php
 
 function C($key,$file='config'){
-	$config = new \Sunphp\Config('/common/conf');
+	$config = new \Sunphp\Config(BASEDIR.'/common/conf');
     if (!strpos($key, '.')) {
         return $config[$file][$key];
     }
