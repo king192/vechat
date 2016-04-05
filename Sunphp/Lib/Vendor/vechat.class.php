@@ -208,6 +208,7 @@ class vechat
                         "Url" =>"weixin://addfriend/pondbaystudio");
                         break;
                     case "userinfo":
+                        Log::debug($object->FromUserName,array(),'hello');
                         $res = $this->userinfo($object->FromUserName);
                         $contentStr[] = array('Title'=>'hello','Description'=>$res);
                         break;
