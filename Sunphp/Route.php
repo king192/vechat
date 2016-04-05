@@ -49,7 +49,7 @@ class route {
 	static function parseUrl(){
 
 		$uri = $_SERVER['REQUEST_URI'];
-		if(false === strpos($uri , '?')){
+		if(false === strpos($uri , '?') && false === strpos($uri , 'index.php')){
 			$uri = preg_replace("/(.html)$/", '', $uri);//去掉后缀名
 			$uri = substr($uri, 1);
 			$uri = explode('/',$uri);
