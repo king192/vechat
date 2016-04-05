@@ -15,7 +15,7 @@ class velogin {
 		    $param .= "?auto_puid=".$_GET['auto_puid'];
 		} 
 		$appid = VECHAT_APPID;  //公众号的唯一标识
-		$redirect_uri = urlencode("http://".$_SERVER['SERVER_NAME']."/test/loginAction.php".$param);
+		$redirect_uri = urlencode("http://".$_SERVER['SERVER_NAME']."/Home/Index/getuserinfo".$param);
 		$state = 'other';
 		$is_scope = max(0,$_GET['is_scope']);
 
@@ -32,6 +32,63 @@ class velogin {
 		    $url .= '?appid='.$appid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_base&state='.$state.'#wechat_redirect';
 		}
 		header("Location:".$url);
+	}
+	/*
+	*获取微信用户信息
+	*return array
+	*/
+	static public function getUserInfo(){
+		$appid = VECHAT_APPID; //公众号的唯一标识
+        $secret = VECHAT_APPSECRET;  //公众号的appsecret
+        $code = $_GET["code"];  //第一步获取的code参数
+        if(!empty($_GET['puid'])){
+            $param .= "&puid=".$_GET['puid'];
+        }
+        if(!empty($_GET['bid'])){
+            $param .= "&bid=".$_GET['bid'];
+        }
+        if(!empty($_GET['auto_puid'])){
+            $param .= "&auto_puid=".$_GET['auto_puid'];
+        }
 
+        if(empty($_GET['param'])){
+        //获取授权token
+        $get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$secret.'&code='.$code.'&grant_type=authorization_code';
+        $json_obj = json_decode(self::http_post($get_token_url),true);
+        // var_dump($json_obj);
+        $access_token = $json_obj['access_token'];
+        $openid = $json_obj['openid'];
+
+	        //根据openid和access_token查询用户信息
+	        $get_user_info_url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN';
+	        $res = self::http_post($get_user_info_url);
+	        $user_obj = json_decode($res,true);
+	        var_dump($user_obj);
+	    }else{
+
+            $get_tken_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appid."&secret=".$secret;
+            $get_tken = json_decode(self::http_post($get_tken_url),true);
+            // var_dump($get_tken);
+
+            $access_token = $get_tken['access_token'];
+            $get_subscribe_url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token.'&openid='.$puid_openid.'&lang=zh_CN';
+            $get_subscribe = json_decode(self::http_post($get_subscribe_url),true);
+            return $get_subscribe;
+	    }
+	}
+	static public function http_post($url,$data){
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+        if (!empty($data)){
+            curl_setopt($curl, CURLOPT_POST, 1);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        }
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($curl);
+        curl_close($curl);
+        return $output;
 	}
 }
