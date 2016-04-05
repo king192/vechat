@@ -263,11 +263,16 @@ class vechat
     private function receiveText1($object)
     {
         Log::debug($object->Content,array(),'text');
-        if($object->Content == 'info'){
-          $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/login.php';
-        }else{
-          $contentStr = "你发送的内容为：".$object->Content;
-        }
+        switch ($object->Content) {
+          case 'info':
+            $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/login.php';
+            break;
+          case 'vl':
+            $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/Home/Index/velogin';
+            break;
+          default:
+            $contentStr = "你发送的内容为：".$object->Content;
+            break;
         Log::debug($msg->ret,array('msg'=>$object->Content),'text');
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;

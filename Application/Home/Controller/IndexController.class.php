@@ -13,6 +13,13 @@ class IndexController {
 		  $wechatObj->responseMsg();
 		}
 	}
+	public function velogin(){
+		define("TOKEN", "kdfkdfk");
+		$vechat = C('vechatapp',$_SERVER['SERVER_NAME']);
+		define('VECHAT_APPID', $vechat['appid']);
+		define('VECHAT_APPSECRET', $vechat['appsecret']);
+		\Sunphp\Lib\Vendor\velogin::oauth2();
+	}
 	public function initMenu(){
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
 		$wechatObj->init_menu(); 
