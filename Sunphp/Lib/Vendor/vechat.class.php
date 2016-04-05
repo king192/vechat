@@ -4,6 +4,11 @@ use Lib\Vendor\SeasLog\Log;
 
 class vechat
 {
+  public function __construct(){
+    if(!defined('VECHAT_APPID') || !defined('VECHAT_APPSECRET')){
+      Log::error('not defined appid or appsecret',array(),'defined');
+    }
+  }
 	public function valid()
     {
         $echoStr = $_GET["echostr"];
@@ -103,8 +108,8 @@ class vechat
 		}
 	}
   private function get_access_token(){
-        $appid = "wxb39afc8e3bd62749";
-        $appsecret = "8ff4cdfe5cee4b03fc2a88604a0358d6";
+        $appid = VECHAT_APPID;
+        $appsecret = VECHAT_APPSECRET;
         $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret";
         
         $output = $this->https_request($url);
@@ -145,7 +150,7 @@ class vechat
                     {
                     "type": "view",
                     "name": "授权获取",
-                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx3a5aac7161b28013&redirect_uri=http%3A%2F%2Fvechat.suoga.org%2Findex.php&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
+                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=http%3A%2F%2Fvechat.suoga.org%2Findex.php&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
                     },
                     {
                       "type":"click",
@@ -234,9 +239,10 @@ class vechat
       private function receiveText($object)
     {
         Log::debug($object->Content,array(),'text');
+        $appid = VECHAT_APPID;
 
         $token = $this->get_access_token();
-        $c=array("query"=>$object->Content,"city"=>"北京","category"=>"stock","appid"=>"wxb39afc8e3bd62749","uid"=>$object->FromUserName);
+        $c=array("query"=>$object->Content,"city"=>"北京","category"=>"stock","appid"=>$appid,"uid"=>$object->FromUserName);
         $post=json_encode($c);
         $post=urldecode($post);
         //语义理解
