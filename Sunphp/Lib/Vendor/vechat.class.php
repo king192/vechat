@@ -12,8 +12,8 @@ class vechat
         	echo $echoStr;
         	exit;
         }else{
-          exit('nonono');
           Log::info('some',array(),'logtest');
+          exit('nonono');
         }
     }
 
