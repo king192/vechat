@@ -13,9 +13,9 @@ if(!empty($_GET['bid'])){
 if(!empty($_GET['auto_puid'])){
     $param .= "?auto_puid=".$_GET['auto_puid'];
 } 
-$appid = 'wxb39afc8e3bd62749';  //公众号的唯一标识
-$redirect_uri = urlencode("http://vechat.suoga.org/test/loginAction.php".$param);
-$state = 'vechat.suoga.org';
+$appid = 'wx3a5aac7161b28013';  //公众号的唯一标识
+$redirect_uri = urlencode("http://vechattest.suoga.org/test/loginAction.php".$param);
+$state = 'vechattest.suoga.org';
 $is_scope = max(0,$_GET['is_scope']);
 
 $url = 'https://open.weixin.qq.com/connect/oauth2/authorize';
