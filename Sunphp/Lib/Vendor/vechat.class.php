@@ -145,12 +145,12 @@ class vechat
         
                },
                {
-                   "name":"方倍",
+                   "name":"关于",
                    "sub_button":[
                     {
                     "type": "view",
                     "name": "授权获取",
-                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=http%3A%2F%2Fvechat.suoga.org%2Findex.php&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
+                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=http%3A%2F%2'.$_SERVER["SERVER_NAME"].'%2Findex.php&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
                     },
                     {
                       "type":"click",
@@ -160,7 +160,7 @@ class vechat
                     {
                       "type":"view",
                       "name":"授权登录",
-                      "url":"http://vechat.suoga.org/login.php"
+                      "url":"http://'.$_SERVER["SERVER_NAME"].'/login.php"
                     }]
                
         
