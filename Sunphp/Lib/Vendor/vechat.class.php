@@ -189,6 +189,7 @@ class vechat
         }
       private function receiveEvent($object)
     {
+        Log::debug('hello',array(),'event');
         $contentStr = "";
         switch ($object->Event)
         {
@@ -199,6 +200,7 @@ class vechat
 
                 break;
             case "CLICK":
+                Log::debug('1',array(),'click');
                 switch ($object->EventKey)
                 {
                     case "company":
@@ -208,7 +210,7 @@ class vechat
                         "Url" =>"weixin://addfriend/pondbaystudio");
                         break;
                     case "userinfo":
-                        Log::debug($object->FromUserName,array(),'hello');
+                        Log::debug($object->FromUserName,array(),'click');
                         $res = $this->userinfo($object->FromUserName);
                         $contentStr[] = array('Title'=>'hello','Description'=>$res);
                         break;
