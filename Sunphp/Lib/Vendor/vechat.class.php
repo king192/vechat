@@ -316,6 +316,7 @@ $item_str</Articles>
     }
     private function userinfo($openid){
       $access_token = $this->get_access_token();
+      Log::debug($openid.'||||||'.$access_token);
       return $this->https_request('https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token.'&openid='.$openid);
     }
 
