@@ -10,9 +10,12 @@ class IndexController {
 		if (isset($_GET['echostr'])) {
 		  $wechatObj->valid();
 		}else{
-		  $wechatObj->init_menu(); 
 		  $wechatObj->responseMsg();
 		}
+	}
+	public function initMenu(){
+		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
+		$wechatObj->init_menu(); 
 	}
 	public function hello(){
 		var_dump($vechat = C('vechatapp',$_SERVER['SERVER_NAME']));
