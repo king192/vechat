@@ -261,7 +261,7 @@ class vechat
     {
         Log::debug($object->Content,array(),'text');
         if($object->Content == 'info'){
-          $contentStr = 'http://vechat.suoga.org/login.php';
+          $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/login.php';
         }else{
           $contentStr = "你发送的内容为：".$object->Content;
         }
