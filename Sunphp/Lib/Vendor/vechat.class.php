@@ -13,6 +13,7 @@ class vechat
         	exit;
         }else{
           exit('nonono');
+          Log::info('some',array(),'logtest');
         }
     }
 
