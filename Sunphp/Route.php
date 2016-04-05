@@ -49,21 +49,31 @@ class route {
 	static function parseUrl(){
 
 		$uri = $_SERVER['REQUEST_URI'];
-		$uri = substr($uri, 1);
-		$uri = explode('/',$uri);
-		$m = array_shift($uri);
-		$c = array_shift($uri);
-		$a = array_shift($uri);
-		$m = empty($m)?'Home':$m;
-		define('MODULE',$m);
-		$c = empty($c)?'Index':$c;
-		define('CONTROLLER',$c);
-		$a = empty($a)?'index':$a;
-		define('ACTION',$a);
-		$var = array();
-		preg_replace_callback('/(\w+)\/([^\/]+)/', function($match) use(&$var){$var[$match[1]]=strip_tags($match[2]);}, implode('/',$uri));
-		$_GET = array_merge($_GET,$var);
-		// print_r($_GET);
+		if(false === strpos($uri , 'index.php')){
+			$uri = preg_replace("/(.html)$/", '', $uri);//去掉后缀名
+			$uri = substr($uri, 1);
+			$uri = explode('/',$uri);
+			$m = array_shift($uri);
+			$c = array_shift($uri);
+			$a = array_shift($uri);
+			$m = empty($m)?'Home':$m;
+			define('MODULE',$m);
+			$c = empty($c)?'Index':$c;
+			define('CONTROLLER',$c);
+			$a = empty($a)?'index':$a;
+			define('ACTION',$a);
+			$var = array();
+			preg_replace_callback('/(\w+)\/([^\/]+)/', function($match) use(&$var){$var[$match[1]]=strip_tags($match[2]);}, implode('/',$uri));
+			$_GET = array_merge($_GET,$var);
+			// print_r($_GET);
+		}else{
+			$m = empty($_GET['m'])?'Home':$_GET['m'];
+			define('MODULE',$m);
+			$c = empty($_GET['c'])?'Index':$_GET['c'];
+			define('CONTROLLER',$c);
+			$a = empty($_GET['a'])?'index':$_GET['a'];
+			define('ACTION',$a);
+		}
 	}
 
 }
