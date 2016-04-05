@@ -15,7 +15,7 @@ class IndexController {
 		}
 	}
 	public function hello(){
-		var_dump($vechat = C('vechat','server'));
+		var_dump($vechat = C('vechat',$_SERVER['SERVER_NAME']));
 		echo $vechat['appid'];
 		// var_dump(C('vechatapp'));
 		echo 'hello';
