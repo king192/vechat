@@ -150,7 +150,7 @@ class vechat
                     {
                     "type": "view",
                     "name": "授权获取",
-                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid='.VECHAT_APPID.'&redirect_uri=http%3A%2F%2'.$_SERVER["SERVER_NAME"].'%2Findex.php&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
+                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid='.VECHAT_APPID.'&redirect_uri=http%3A%2F%2'.$_SERVER["SERVER_NAME"].'%2Ftest%2FloginAction.php&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
                     },
                     {
                       "type":"click",
