@@ -3,7 +3,7 @@
 class IndexController {
 	public function index(){
 		define("TOKEN", "kdfkdfk");
-		$vechat = C('vechat','server');
+		$vechat = C('vechat',$_SERVER['SERVER_NAME']);
 		define('VECHAT_APPID', $vechat['appid']);
 		define('VECHAT_APPSECRET', $vechat['appsecret']);
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
