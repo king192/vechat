@@ -1,5 +1,5 @@
 <?php
-namespace Sunphp\Vendor;
+namespace Sunphp\Lib\Vendor;
 
 class vechat
 {
