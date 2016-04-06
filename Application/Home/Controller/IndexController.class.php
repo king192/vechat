@@ -22,6 +22,7 @@ class IndexController {
 		$info = \Sunphp\Lib\Vendor\velogin::getUserInfo();
 		var_dump($info);
 	}
+	//初始化菜单
 	public function initMenu(){
 		$this->appconfig();
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();

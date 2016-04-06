@@ -9,6 +9,7 @@ class Log
     public function __construct()
     {
         #SeasLog init
+        self::setLogger($_SERVER['SERVER_NAME']);
     }
 
     public function __destruct()
