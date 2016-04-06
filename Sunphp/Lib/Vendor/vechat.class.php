@@ -278,7 +278,6 @@ class vechat
             $contentStr = "你发送的内容为：".$object->Content;
             break;
         }
-        Log::debug($msg->ret,array('msg'=>$object->Content),'text');
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;
     }
