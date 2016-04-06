@@ -209,11 +209,14 @@ class vechat
                         $res = $this->userinfo($object->FromUserName);
                         $contentStr[] = array('Title'=>'hello','Description'=>$res);
                         break;
+                    case "about":
+                        $contentStr = '此公众号暂时不接收用户消息，需要请联系1293812979@qq.com或o@iyouths.org';
+                        break;
                     default:
-                        $contentStr[] = array("Title" =>"默认菜单回复", 
-                        "Description" =>"您正在使用的是方倍工作室的自定义菜单测试接口", 
+                        $contentStr[] = array("Title" =>"谢谢您的关注", 
+                        "Description" =>"hahahhahahahahhaahhahaahhahahha", 
                         "PicUrl" =>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", 
-                        "Url" =>"weixin://addfriend/pondbaystudio");
+                        "Url" =>"http://wp.iyouths.org");
                         break;
                 }
                 break;

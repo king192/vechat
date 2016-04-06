@@ -13,16 +13,12 @@ class IndexController {
 	}
 	public function oauth2(){
 		define("TOKEN", "kdfkdfk");
-		$vechat = C('vechatapp',$_SERVER['SERVER_NAME']);
-		define('VECHAT_APPID', $vechat['appid']);
-		define('VECHAT_APPSECRET', $vechat['appsecret']);
+		$this->appconfig();
 		\Sunphp\Lib\Vendor\velogin::oauth2();
 	}
 	public function getuserinfo(){
 		define("TOKEN", "kdfkdfk");
-		$vechat = C('vechatapp',$_SERVER['SERVER_NAME']);
-		define('VECHAT_APPID', $vechat['appid']);
-		define('VECHAT_APPSECRET', $vechat['appsecret']);
+		$this->appconfig();
 		$info = \Sunphp\Lib\Vendor\velogin::getUserInfo();
 		var_dump($info);
 	}
