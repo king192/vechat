@@ -6,10 +6,8 @@
 namespace Lib\Vendor\SeasLog;
 class Log
 {
-    static private $defaultModule;
     public function __construct()
     {
-        self::$defaultModule = $_SERVER['SERVER_NAME'];
         #SeasLog init
         // self::setLogger($_SERVER['SERVER_NAME']);
     }
@@ -116,7 +114,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function debug($message,array $content = array(),$module = self::$defaultModule)
+    static public function debug($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         #$level = SEASLOG_DEBUG
         $message = self::getIpUri().$message;
@@ -129,7 +127,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function info($message,array $content = array(),$module = self::$defaultModule)
+    static public function info($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         #$level = SEASLOG_INFO
         $message = self::getIpUri().$message;
@@ -142,7 +140,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function notice($message,array $content = array(),$module = self::$defaultModule)
+    static public function notice($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         #$level = SEASLOG_NOTICE
         $message = self::getIpUri().$message;
@@ -155,7 +153,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function warning($message,array $content = array(),$module = self::$defaultModule)
+    static public function warning($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         #$level = SEASLOG_WARNING
         $message = self::getIpUri().$message;
@@ -168,7 +166,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function error($message,array $content = array(),$module = self::$defaultModule)
+    static public function error($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         #$level = SEASLOG_ERROR
         $message = self::getIpUri().$message;
@@ -181,7 +179,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function critical($message,array $content = array(),$module = self::$defaultModule)
+    static public function critical($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         #$level = SEASLOG_CRITICAL
         $message = self::getIpUri().$message;
@@ -194,7 +192,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function alert($message,array $content = array(),$module = self::$defaultModule)
+    static public function alert($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         #$level = SEASLOG_ALERT
         $message = self::getIpUri().$message;
@@ -207,7 +205,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function emergency($message,array $content = array(),$module = self::$defaultModule)
+    static public function emergency($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         #$level = SEASLOG_EMERGENCY
         $message = self::getIpUri().$message;
@@ -221,7 +219,7 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function log($level,$message,array $content = array(),$module = self::$defaultModule)
+    static public function log($level,$message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
     {
         $message = self::getIpUri().$message;
         \SeasLog::log($level,$message,$content,$module);
