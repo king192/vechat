@@ -187,14 +187,15 @@ class vechat
         }
       private function receiveEvent($object)
     {
-        Log::debug('hello',array(),'event');
+        // Log::debug('hello',array(),'event');
         $contentStr = "";
         switch ($object->Event)
         {
             case "subscribe":
                 $contentStr = "欢迎关注!!!".$object->EventKey;
-                Log::info('some',array(),'subscribe');
+                Log::info($object->FromUserName,array(),'subscribe');
             case "unsubscribe":
+                Log::info($object->FromUserName,array(),'unsubscribe');
 
                 break;
             case "CLICK":
