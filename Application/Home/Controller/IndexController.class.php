@@ -3,9 +3,7 @@
 class IndexController {
 	public function index(){
 		define("TOKEN", "kdfkdfk");
-		$vechat = C('vechatapp',$_SERVER['SERVER_NAME']);
-		define('VECHAT_APPID', $vechat['appid']);
-		define('VECHAT_APPSECRET', $vechat['appsecret']);
+		$this->appconfig();
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
 		if (isset($_GET['echostr'])) {
 		  $wechatObj->valid();
@@ -29,6 +27,7 @@ class IndexController {
 		var_dump($info);
 	}
 	public function initMenu(){
+		$this->appconfig();
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
 		$wechatObj->init_menu(); 
 	}
@@ -47,5 +46,10 @@ class IndexController {
 		}catch(Exception $e){
 			echo $e->getMessage();
 		}
+	}
+	private function appconfig(){
+		$vechat = C('vechatapp',$_SERVER['SERVER_NAME']);
+		define('VECHAT_APPID', $vechat['appid']);
+		define('VECHAT_APPSECRET', $vechat['appsecret']);
 	}
 }
