@@ -146,11 +146,6 @@ class vechat
                       "type":"click",
                       "name":"说明",
                       "key":"about"
-                    },
-                    {
-                      "type":"view",
-                      "name":"域名转让",
-                      "url":"http://bbs.suoga.org"
                     }]
                
         
