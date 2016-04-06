@@ -114,10 +114,11 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function debug($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function debug($message,array $content = array(),$module = '')
     {
         #$level = SEASLOG_DEBUG
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::debug($message,$content,$module);
     }
 
@@ -127,10 +128,11 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function info($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function info($message,array $content = array(),$module = '')
     {
         #$level = SEASLOG_INFO
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::info($message,$content,$module);
     }
 
@@ -140,10 +142,11 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function notice($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function notice($message,array $content = array(),$module = '')
     {
         #$level = SEASLOG_NOTICE
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::notice($message,$content,$module);
     }
 
@@ -153,10 +156,11 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function warning($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function warning($message,array $content = array(),$module = '')
     {
         #$level = SEASLOG_WARNING
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::warning($message,$content,$module);
     }
 
@@ -166,10 +170,11 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function error($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function error($message,array $content = array(),$module = '')
     {
         #$level = SEASLOG_ERROR
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::error($message,$content,$module);
     }
 
@@ -179,10 +184,11 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function critical($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function critical($message,array $content = array(),$module = '')
     {
         #$level = SEASLOG_CRITICAL
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::critical($message,$content,$module);
     }
 
@@ -192,10 +198,11 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function alert($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function alert($message,array $content = array(),$module = '')
     {
         #$level = SEASLOG_ALERT
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::alert($message,$content,$module);
     }
 
@@ -205,10 +212,11 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function emergency($message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function emergency($message,array $content = array(),$module = '')
     {
         #$level = SEASLOG_EMERGENCY
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::emergency($message,$content,$module);
     }
 
@@ -219,9 +227,10 @@ class Log
      * @param array $content
      * @param string $module
      */
-    static public function log($level,$message,array $content = array(),$module = $_SERVER['SERVER_NAME'])
+    static public function log($level,$message,array $content = array(),$module = '')
     {
         $message = self::getIpUri().$message;
+        $module = $_SERVER['SERVER_NAME'];
         \SeasLog::log($level,$message,$content,$module);
     }
 }
