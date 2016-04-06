@@ -162,6 +162,14 @@ class vechat
         $result = $this->https_request($url, $jsonmenu);
         var_dump($result);
     }
+    public function delete_menu(){
+      $url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=".$this->get_access_token();
+      $result = $this->https_request($url);
+    }
+    public function flush_menu(){
+      $this->delete_menu();
+      $this->init_menu();
+    }
         
         protected function https_request($url,$data = null){
             $curl = curl_init();
