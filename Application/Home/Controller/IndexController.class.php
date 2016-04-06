@@ -28,6 +28,17 @@ class IndexController {
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
 		$wechatObj->init_menu(); 
 	}
+
+	public function delMenu(){
+		$this->appconfig();
+		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
+		$wechatObj->delete_menu(); 
+	}
+	public function flushMenu(){
+		$this->appconfig();
+		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
+		$wechatObj->flush_menu(); 
+	}
 	public function hello(){
 		var_dump($vechat = C('vechatapp',$_SERVER['SERVER_NAME']));
 		echo $vechat['appid'];
