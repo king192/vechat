@@ -118,7 +118,9 @@ class Log
     {
         #$level = SEASLOG_DEBUG
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::debug($message,$content,$module);
     }
 
@@ -132,7 +134,9 @@ class Log
     {
         #$level = SEASLOG_INFO
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::info($message,$content,$module);
     }
 
@@ -146,7 +150,9 @@ class Log
     {
         #$level = SEASLOG_NOTICE
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::notice($message,$content,$module);
     }
 
@@ -160,7 +166,9 @@ class Log
     {
         #$level = SEASLOG_WARNING
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::warning($message,$content,$module);
     }
 
@@ -174,7 +182,9 @@ class Log
     {
         #$level = SEASLOG_ERROR
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::error($message,$content,$module);
     }
 
@@ -188,7 +198,9 @@ class Log
     {
         #$level = SEASLOG_CRITICAL
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::critical($message,$content,$module);
     }
 
@@ -202,7 +214,9 @@ class Log
     {
         #$level = SEASLOG_ALERT
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::alert($message,$content,$module);
     }
 
@@ -216,7 +230,9 @@ class Log
     {
         #$level = SEASLOG_EMERGENCY
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::emergency($message,$content,$module);
     }
 
@@ -230,7 +246,9 @@ class Log
     static public function log($level,$message,array $content = array(),$module = '')
     {
         $message = self::getIpUri().$message;
-        $module = $_SERVER['SERVER_NAME'];
+        if($module !== ''){
+            $module = $_SERVER['SERVER_NAME'].'/'.$module;
+        }
         \SeasLog::log($level,$message,$content,$module);
     }
 }
