@@ -18,7 +18,7 @@ class vechat
         	echo $echoStr;
         	exit;
         }else{
-          Log::info('some',array(),'logtest');
+          Log::info('some',array(),'validfail');
           exit('nonono');
         }
     }
@@ -199,7 +199,7 @@ class vechat
 
                 break;
             case "CLICK":
-                Log::debug('1',array(),'click');
+                Log::debug($object->EventKey,array(),'click');
                 switch ($object->EventKey)
                 {
                     case "company":
@@ -243,7 +243,7 @@ class vechat
 
       private function receiveText($object)
     {
-        Log::debug($object->Content,array(),'text');
+        Log::debug($object->FromUserName.' || '.$object->Content,array(),'text');
         $appid = VECHAT_APPID;
 
         $token = $this->get_access_token();
@@ -258,12 +258,11 @@ class vechat
         $category = $strjson->semantic->details->category;
         $funcFlag = 0;
         $contentStr = "你发送的内容为：".$msg->ret;
-        Log::debug($msg->ret,array('msg'=>$msg->ret),'text');
         $resultStr = $this->transmitText($object, $contentStr, $funcFlag);
         return $resultStr;
     }
     private function receiveText1($object){
-        Log::debug($object->Content,array(),'text');
+        Log::debug($object->FromUserName.' || '.$object->Content,array(),'text');
         switch ($object->Content) {
           case 'info':
             $contentStr = 'http://'.$_SERVER['SERVER_NAME'].'/login.php';
