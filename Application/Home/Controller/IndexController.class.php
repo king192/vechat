@@ -2,12 +2,14 @@
 // echo 'dddddddddddddddd';
 class IndexController {
 	public function index(){
-		define("TOKEN", "kdfkdfk");
 		$this->appconfig();
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
 		if (isset($_GET['echostr'])) {
+			//微信接入，即初始化认证，认证时不需要appid和appsecret
+			define("TOKEN", "kdfkdfk");
 		  $wechatObj->valid();
 		}else{
+			//非认证，接收消息事件
 		  $wechatObj->responseMsg();
 		}
 	}
