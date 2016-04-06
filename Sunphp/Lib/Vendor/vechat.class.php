@@ -124,22 +124,17 @@ class vechat
         $jsonmenu = '{
               "button":[
               {
-                    "name":"天气预报",
+                    "name":"网站",
                    "sub_button":[
                     {
-                       "type":"click",
-                       "name":"北京天气",
-                       "key":"天气北京"
+                       "type":"view",
+                       "name":"爱游思",
+                       "url":"http://wp.iyouths.org"
                     },
                     {
-                       "type":"click",
-                       "name":"深圳天气",
-                       "key":"天气深圳"
-                    },
-                    {
-                        "type":"view",
-                        "name":"本地天气",
-                        "url":"http://m.hao123.com/a/tianqi"
+                       "type":"view",
+                       "name":"nodejs站点",
+                       "url":"http://www.55com.org"
                     }]
               
         
@@ -148,19 +143,14 @@ class vechat
                    "name":"关于",
                    "sub_button":[
                     {
-                    "type": "view",
-                    "name": "授权获取",
-                    "url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid='.VECHAT_APPID.'%26redirect_uri=http%3A%2F%2'.$_SERVER["SERVER_NAME"].'%2Ftest%2FloginAction.php%26response_type=code%26scope=snsapi_userinfo%26state=1#wechat_redirect"
-                    },
-                    {
                       "type":"click",
-                      "name":"用户信息", 
-                      "key":"userinfo"
+                      "name":"说明",
+                      "key":"about"
                     },
                     {
                       "type":"view",
-                      "name":"授权登录",
-                      "url":"http://'.$_SERVER["SERVER_NAME"].'/login.php"
+                      "name":"域名转让",
+                      "url":"http://bbs.suoga.org"
                     }]
                
         
@@ -168,6 +158,11 @@ class vechat
          }';
         
         
+                    // {
+                    //   "type":"click",
+                    //   "name":"用户信息", 
+                    //   "key":"userinfo"
+                    // },
         $url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$access_token;
         $result = $this->https_request($url, $jsonmenu);
         var_dump($result);
