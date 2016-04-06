@@ -9,7 +9,7 @@ class Log
     static private $defaultModule;
     public function __construct()
     {
-        self::$defaultModule =  = $_SERVER['SERVER_NAME'];
+        self::$defaultModule = $_SERVER['SERVER_NAME'];
         #SeasLog init
         // self::setLogger($_SERVER['SERVER_NAME']);
     }
