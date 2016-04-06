@@ -6,9 +6,10 @@
 namespace Lib\Vendor\SeasLog;
 class Log
 {
-    static private $defaultModule = $_SERVER['SERVER_NAME'];
+    static private $defaultModule;
     public function __construct()
     {
+        self::$defaultModule =  = $_SERVER['SERVER_NAME'];
         #SeasLog init
         // self::setLogger($_SERVER['SERVER_NAME']);
     }
