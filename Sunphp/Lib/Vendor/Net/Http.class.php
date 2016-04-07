@@ -1,5 +1,5 @@
 <?php
-namespace Sunphp\Vendor\Net;
+namespace Sunphp\Lib\Vendor\Net;
 
 class Http {
 	static function http_post($url,$data = null){
