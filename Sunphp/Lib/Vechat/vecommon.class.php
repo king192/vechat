@@ -4,7 +4,7 @@ use Sunphp\Lib\Vendor\Net\Http;
 use Sunphp\Lib\Vendor\SeasLog\Log;
 
 if(!defined('APP_PATH')){
-	Log::debug('access deny',array(),'invalid');
+	// Log::debug('access deny',array(),'invalid');
 	exit('access deny');
 }
 class vecommon{
