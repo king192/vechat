@@ -1,4 +1,6 @@
 <?php
+namespace Sunphp\Vendor\Net;
+
 class Http {
 	static function http_post($url,$data = null){
         $curl = curl_init();

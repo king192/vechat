@@ -1,9 +1,9 @@
 <?php
 /**
- * @author ciogao@gmail.com
+ * @author 1293812979@qq.com
  * Date: 14-1-27 下午4:47
  */
-namespace Lib\Vendor\SeasLog;
+namespace Sunphp\Lib\Vendor\SeasLog;
 class Log
 {
     public function __construct()
