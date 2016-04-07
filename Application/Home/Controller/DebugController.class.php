@@ -7,5 +7,6 @@ class DebugController {
 	}
 	public function index1(){
 		vecommon::debug();
+		vecommon::debug();
 	}
 }
