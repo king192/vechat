@@ -22,7 +22,7 @@ class velogin {
 		// } 
 		$appid = VECHAT_APPID;  //公众号的唯一标识
 		$redirect_uri = urlencode("http://".$_SERVER['SERVER_NAME']."/Home/Index/getuserinfo");
-		$state = 'other';
+		$state = 'vewp.suoga.org';
 		$is_scope = max(0,$_GET['is_scope']);
 
 		$url = 'https://open.weixin.qq.com/connect/oauth2/authorize';
@@ -30,8 +30,8 @@ class velogin {
 		// if($is_scope>0){
 		if(!isset($_GET['is_scope'])){
 		    // 一般模式
-		    // $url .= '?appid='.$appid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_userinfo&state='.$state.'#wechat_redirect';
-		    $url .= '?appid='.$appid.'&redirect_uri='.$redirect_uri.'/response_type/code/scope/snsapi_userinfo/state/'.$state.'#wechat_redirect';
+		    $url .= '?appid='.$appid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_userinfo&state='.$state.'#wechat_redirect';
+		    // $url .= '?appid='.$appid.'&redirect_uri='.$redirect_uri.'/response_type/code/scope/snsapi_userinfo/state/'.$state.'#wechat_redirect';
 		}else{
 		    // 静默模式
 		    // echo 'hello world';
