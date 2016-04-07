@@ -1,4 +1,7 @@
 <?php
+/**
+*@author 1293812979@qq.com
+*/
 namespace Sunphp\Lib\Vechat;
 use Sunphp\Lib\Vendor\Net\Http;
 use Sunphp\Lib\Vendor\SeasLog\Log;
