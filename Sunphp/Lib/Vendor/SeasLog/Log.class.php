@@ -6,16 +6,6 @@
 namespace Sunphp\Lib\Vendor\SeasLog;
 class Log
 {
-    public function __construct()
-    {
-        #SeasLog init
-        // self::setLogger($_SERVER['SERVER_NAME']);
-    }
-
-    public function __destruct()
-    {
-        #SeasLog distroy
-    }
     static public function getIpUri(){
         return $_SERVER['REMOTE_ADDR'].' | '.$_SERVER['REQUEST_URI'].' | ';
     }

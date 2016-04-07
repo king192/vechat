@@ -43,10 +43,10 @@ class velogin {
 	*获取微信用户信息
 	*return array
 	*/
-	static public function getUserInfo(){
+	static public function getUserInfo($code){
 		$appid = VECHAT_APPID; //公众号的唯一标识
         $secret = VECHAT_APPSECRET;  //公众号的appsecret
-        $code = $_GET["code"];  //第一步获取的code参数
+        // $code = $_GET["code"];  //第一步获取的code参数
         if(!empty($_GET['puid'])){
             $param .= "&puid=".$_GET['puid'];
         }
