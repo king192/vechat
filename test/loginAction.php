@@ -29,6 +29,7 @@ class login{
 	        $get_user_info_url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN';
 	        $res = $this->https_request($get_user_info_url);
 	        $user_obj = json_decode($res,true);
+            echo '=====================<br>';
 	        var_dump($user_obj);
 	    }else{
 
