@@ -1,5 +1,6 @@
 <?php
 // echo 'dddddddddddddddd';
+use Sunphp\Lib\Vechat\vecommon;
 class IndexController {
 	public function index(){
 		$this->appconfig();
@@ -58,9 +59,6 @@ class IndexController {
 		}
 	}
 	private function appconfig(){
-		$vechat = C('vechatapp',$_SERVER['SERVER_NAME']);
-		define('VECHAT_APPID', $vechat['appid']);
-		define('VECHAT_APPSECRET', $vechat['appsecret']);
-		define("TOKEN", "kdfkdfk");//并不是所有操作都需要token
+		vecommon::init_config();
 	}
 }
