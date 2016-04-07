@@ -31,7 +31,7 @@ class velogin {
 		if(!isset($_GET['is_scope'])){
 		    // 一般模式
 		    // $url .= '?appid='.$appid.'&redirect_uri='.$redirect_uri.'&response_type=code&scope=snsapi_userinfo&state='.$state.'#wechat_redirect';
-		    $url .= '/appid/'.$appid.'/redirect_uri/'.$redirect_uri.'/response_type/code/scope/snsapi_userinfo/state/'.$state.'#wechat_redirect';
+		    $url .= '?appid='.$appid.'&redirect_uri='.$redirect_uri.'/response_type/code/scope/snsapi_userinfo/state/'.$state.'#wechat_redirect';
 		}else{
 		    // 静默模式
 		    // echo 'hello world';
