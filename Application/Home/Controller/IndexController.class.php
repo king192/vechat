@@ -25,6 +25,7 @@ class IndexController {
 		$this->appconfig();
 		$code = $_GET['code'];
 		$info = \Sunphp\Lib\Vechat\velogin::getUserInfo($code);
+		echo '=+=+=+=+=+===+===+=+=+==<br>';
 		var_dump($info);
 	}
 	//初始化菜单
