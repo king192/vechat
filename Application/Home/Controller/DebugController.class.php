@@ -2,8 +2,9 @@
 use Sunphp\Lib\Vechat\vecommon;
 class DebugController {
 	public function index(){
-		// vecommon::init_config();
-		$config = vecommon::get_test();
+		vecommon::init_config();
+		$config = vecommon::get_access_token();
+		// $config = vecommon::get_test();
 		var_dump($config);
 		echo TOKEN;
 	}
