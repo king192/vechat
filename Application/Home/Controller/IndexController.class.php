@@ -3,7 +3,7 @@
 class IndexController {
 	public function index(){
 		$this->appconfig();
-		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
+		$wechatObj = new \Sunphp\Lib\Vechat\vechat();
 		if (isset($_GET['echostr'])) {
 			//微信接入，即初始化认证，认证时不需要appid和appsecret
 			// define("TOKEN", "kdfkdfk");
