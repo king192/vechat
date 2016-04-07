@@ -1,11 +1,12 @@
 <?php
-if(!defined('APP_PATH')){
-	exit('access deny');
-}
 namespace Sunphp\Lib\Vechat;
 use Sunphp\Lib\Vendor\Net\Http;
 use Sunphp\Lib\Vendor\SeasLog\Log;
 
+if(!defined('APP_PATH')){
+	Log::debug('access deny',array(),'invalid');
+	exit('access deny');
+}
 class vecommon{
 	/*
 	*获取access_token
@@ -50,5 +51,8 @@ class vecommon{
 		define('VECHAT_APPID', $vechat['appid']);
 		define('VECHAT_APPSECRET', $vechat['appsecret']);
 		define("TOKEN", "kdfkdfk");//并不是所有操作都需要token
+	}
+	static function debug(){
+		echo 'hello world!';
 	}
 }

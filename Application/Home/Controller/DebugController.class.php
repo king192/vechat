@@ -5,4 +5,7 @@ class DebugController {
 		vecommon::init_config();
 		vecommon::get_test();
 	}
+	public function index1(){
+		vecommon::debug();
+	}
 }
