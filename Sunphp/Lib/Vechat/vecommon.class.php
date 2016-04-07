@@ -2,7 +2,7 @@
 if(!defined('APP_PATH')){
 	exit('access deny');
 }
-namespace Sunphp\Lib\Vendor;
+namespace Sunphp\Lib\Vechat;
 use Sunphp\Lib\Vendor\Net\Http;
 use Sunphp\Lib\Vendor\SeasLog\Log;
 
