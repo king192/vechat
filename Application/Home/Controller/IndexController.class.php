@@ -21,6 +21,7 @@ class IndexController {
 	}
 	public function getuserinfo(){
 		// define("TOKEN", "kdfkdfk");
+		exit('hello');
 		$this->appconfig();
 		$code = $_GET['code'];
 		$info = \Sunphp\Lib\Vechat\velogin::getUserInfo($code);
