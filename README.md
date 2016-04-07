@@ -4,3 +4,4 @@
 
 appid、appsecret、token配置在Common\Conf\域名.php
 
+大家把域名改成自己的，不要捣乱
