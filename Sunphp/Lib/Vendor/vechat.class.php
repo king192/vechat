@@ -1,6 +1,7 @@
 <?php
 namespace Sunphp\Lib\Vendor;
 use Lib\Vendor\SeasLog\Log;
+use Lib\Vendor\Net\Http;
 
 class vechat
 {
@@ -112,7 +113,7 @@ class vechat
         $appsecret = VECHAT_APPSECRET;
         $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret";
         
-        $output = $this->https_request($url);
+        $output = Http::http_post($url);
         $jsoninfo = json_decode($output, true);
         
         $access_token = $jsoninfo["access_token"];
@@ -159,32 +160,20 @@ class vechat
                     //   "key":"userinfo"
                     // },
         $url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$access_token;
-        $result = $this->https_request($url, $jsonmenu);
+        $result = Http::http_post($url, $jsonmenu);
         var_dump($result);
     }
     public function delete_menu(){
       $url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=".$this->get_access_token();
-      $result = $this->https_request($url);
+      $result = Http::http_post($url);
     }
     public function flush_menu(){
       $this->delete_menu();
       $this->init_menu();
     }
         
-        protected function https_request($url,$data = null){
-            $curl = curl_init();
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-            if (!empty($data)){
-                curl_setopt($curl, CURLOPT_POST, 1);
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            }
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            $output = curl_exec($curl);
-            curl_close($curl);
-            return $output;
-        }
+        // protected fuHttp::http_post(
+        // }
       private function receiveEvent($object)
     {
         // Log::debug('hello',array(),'event');
@@ -252,7 +241,7 @@ class vechat
         $post=urldecode($post);
         //语义理解
         $url = "https://api.weixin.qq.com/semantic/semproxy/search?access_token=".$token; 
-        $msg = $this->https_request($url,$post); 
+        $msg = Http::http_post($url,$post); 
         $strjson=json_decode($msg);
         $code = $strjson->semantic->details->code;
         $category = $strjson->semantic->details->category;
@@ -328,7 +317,7 @@ $item_str</Articles>
     private function userinfo($openid){
       $access_token = $this->get_access_token();
       Log::debug($openid.'||||||'.$access_token);
-      return $this->https_request('https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token.'&openid='.$openid);
+      return Http::http_post('https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token.'&openid='.$openid);
     }
 
 }

@@ -1,7 +1,13 @@
 <?php
 namespace Sunphp\Lib\Vendor;
+use Lib\Vendor\Net\Http;
 
 class velogin {
+	  public function __construct(){
+	    if(!defined('VECHAT_APPID') || !defined('VECHAT_APPSECRET')){
+	      Log::error('not defined appid or appsecret',array(),'defined');
+	    }
+	  }
 	/*我微信oauth2认证*/
 	static public function oauth2(){
 		$param = '';
@@ -54,41 +60,26 @@ class velogin {
         if(empty($_GET['param'])){
         //获取授权token
         $get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$secret.'&code='.$code.'&grant_type=authorization_code';
-        $json_obj = json_decode(self::http_post($get_token_url),true);
+        $json_obj = json_decode(Http::http_post($get_token_url),true);
         // var_dump($json_obj);
         $access_token = $json_obj['access_token'];
         $openid = $json_obj['openid'];
 
 	        //根据openid和access_token查询用户信息
 	        $get_user_info_url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN';
-	        $res = self::http_post($get_user_info_url);
+	        $res = Http::http_post($get_user_info_url);
 	        $user_obj = json_decode($res,true);
 	        var_dump($user_obj);
 	    }else{
 
             $get_tken_url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appid."&secret=".$secret;
-            $get_tken = json_decode(self::http_post($get_tken_url),true);
+            $get_tken = json_decode(Http::http_post($get_tken_url),true);
             // var_dump($get_tken);
 
             $access_token = $get_tken['access_token'];
             $get_subscribe_url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token.'&openid='.$puid_openid.'&lang=zh_CN';
-            $get_subscribe = json_decode(self::http_post($get_subscribe_url),true);
+            $get_subscribe = json_decode(Http::http_post($get_subscribe_url),true);
             return $get_subscribe;
 	    }
-	}
-	static public function http_post($url,$data){
-
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
-        if (!empty($data)){
-            curl_setopt($curl, CURLOPT_POST, 1);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        }
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($curl);
-        curl_close($curl);
-        return $output;
 	}
 }
