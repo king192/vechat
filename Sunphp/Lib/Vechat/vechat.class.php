@@ -2,6 +2,7 @@
 namespace Sunphp\Lib\Vechat;
 use Sunphp\Lib\Vendor\SeasLog\Log;
 use Sunphp\Lib\Vendor\Net\Http;
+use Sunphp\Lib\Vechat\vecommon;
 
 class vechat
 {
@@ -108,20 +109,9 @@ class vechat
 			return false;
 		}
 	}
-  private function get_access_token(){
-        $appid = VECHAT_APPID;
-        $appsecret = VECHAT_APPSECRET;
-        $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret";
-        
-        $output = Http::http_post($url);
-        $jsoninfo = json_decode($output, true);
-        
-        $access_token = $jsoninfo["access_token"];
-        return $access_token;
-  }
     function init_menu(){
         
-        $access_token = $this->get_access_token();
+        $access_token = vecommon::get_access_token();
         $jsonmenu = '{
               "button":[
               {
@@ -164,7 +154,7 @@ class vechat
         var_dump($result);
     }
     public function delete_menu(){
-      $url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=".$this->get_access_token();
+      $url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=".vecommon::get_access_token();
       $result = Http::http_post($url);
     }
     public function flush_menu(){
@@ -235,7 +225,7 @@ class vechat
         Log::debug($object->FromUserName.' || '.$object->Content,array(),'text');
         $appid = VECHAT_APPID;
 
-        $token = $this->get_access_token();
+        $token = vecommon::get_access_token();
         $c=array("query"=>$object->Content,"city"=>"北京","category"=>"stock","appid"=>$appid,"uid"=>$object->FromUserName);
         $post=json_encode($c);
         $post=urldecode($post);
@@ -315,7 +305,7 @@ $item_str</Articles>
         return $resultStr;
     }
     private function userinfo($openid){
-      $access_token = $this->get_access_token();
+      $access_token = vecommon::get_access_token();
       Log::debug($openid.'||||||'.$access_token);
       return Http::http_post('https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$access_token.'&openid='.$openid);
     }
