@@ -1,4 +1,7 @@
 <?php
+/**
+*@author 1293812979@qq.com
+*/
 namespace Sunphp\Lib\Vendor\Net;
 
 class Http {

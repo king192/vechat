@@ -17,29 +17,29 @@ class IndexController {
 	public function oauth2(){
 		// define("TOKEN", "kdfkdfk");
 		$this->appconfig();
-		\Sunphp\Lib\Vendor\velogin::oauth2();
+		\Sunphp\Lib\Vechat\velogin::oauth2();
 	}
 	public function getuserinfo(){
 		// define("TOKEN", "kdfkdfk");
 		$this->appconfig();
-		$info = \Sunphp\Lib\Vendor\velogin::getUserInfo();
+		$info = \Sunphp\Lib\Vechat\velogin::getUserInfo();
 		var_dump($info);
 	}
 	//初始化菜单
 	public function initMenu(){
 		$this->appconfig();
-		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
+		$wechatObj = new \Sunphp\Lib\Vechat\vechat();
 		$wechatObj->init_menu(); 
 	}
 
 	public function delMenu(){
 		$this->appconfig();
-		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
+		$wechatObj = new \Sunphp\Lib\Vechat\vechat();
 		$wechatObj->delete_menu(); 
 	}
 	public function flushMenu(){
 		$this->appconfig();
-		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
+		$wechatObj = new \Sunphp\Lib\Vechat\vechat();
 		$wechatObj->flush_menu(); 
 	}
 	public function hello(){
