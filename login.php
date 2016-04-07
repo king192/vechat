@@ -14,7 +14,7 @@ if(!empty($_GET['auto_puid'])){
     $param .= "?auto_puid=".$_GET['auto_puid'];
 } 
 $appid = 'wxfaf2b149abb25691';  //公众号的唯一标识
-$redirect_uri = urlencode("http://vechattest.suoga.org/test/loginAction.php".$param);
+$redirect_uri = urlencode("http://vewp.suoga.org/test/loginAction.php".$param);
 $state = 'vechattest.suoga.org';
 $is_scope = max(0,$_GET['is_scope']);
 
