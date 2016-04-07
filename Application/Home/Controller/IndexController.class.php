@@ -6,7 +6,7 @@ class IndexController {
 		$wechatObj = new \Sunphp\Lib\Vendor\vechat();
 		if (isset($_GET['echostr'])) {
 			//微信接入，即初始化认证，认证时不需要appid和appsecret
-			define("TOKEN", "kdfkdfk");
+			// define("TOKEN", "kdfkdfk");
 		  $wechatObj->valid();
 		}else{
 			//非认证，接收消息事件
@@ -14,12 +14,12 @@ class IndexController {
 		}
 	}
 	public function oauth2(){
-		define("TOKEN", "kdfkdfk");
+		// define("TOKEN", "kdfkdfk");
 		$this->appconfig();
 		\Sunphp\Lib\Vendor\velogin::oauth2();
 	}
 	public function getuserinfo(){
-		define("TOKEN", "kdfkdfk");
+		// define("TOKEN", "kdfkdfk");
 		$this->appconfig();
 		$info = \Sunphp\Lib\Vendor\velogin::getUserInfo();
 		var_dump($info);
@@ -61,5 +61,6 @@ class IndexController {
 		$vechat = C('vechatapp',$_SERVER['SERVER_NAME']);
 		define('VECHAT_APPID', $vechat['appid']);
 		define('VECHAT_APPSECRET', $vechat['appsecret']);
+		define("TOKEN", "kdfkdfk");//并不是所有操作都需要token
 	}
 }
