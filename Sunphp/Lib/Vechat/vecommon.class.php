@@ -42,7 +42,7 @@ class vecommon{
         }elseif($type === 3){
         	return $jsoninfo;
         }else{
-        	Log::error('param error in vecommon::get_test');
+        	// Log::error('param error in vecommon::get_test');
         	return false;
         }
 	}
