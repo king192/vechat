@@ -4,7 +4,7 @@
 // echo 'hello';
 class login{
 	public function login(){
-        $appid = "wx3a5aac7161b28013"; //公众号的唯一标识
+        $appid = "wxfaf2b149abb25691"; //公众号的唯一标识
         $secret = "d4624c36b6795d1d99dcf0547af5443d";  //公众号的appsecret
         $code = $_GET["code"];  //第一步获取的code参数
         if(!empty($_GET['puid'])){
